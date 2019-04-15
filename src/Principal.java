@@ -64,7 +64,7 @@ public class Principal {
 						int andar = leia.nextInt();
 						elevator.escolherAndar(andar);
 					}else {
-						System.out.println("ERRO! Voce precisa est· dentro do elevador!!");
+						System.out.println("ERRO! Voce precisa est√° dentro do elevador!!");
 					}							
 					System.out.println("");
 					break;
@@ -72,11 +72,13 @@ public class Principal {
 				case 6:
 					System.out.println("");
 					System.out.println("Saindo...");
+					break;
 						
 				default: 
 					System.out.println("");
 					System.out.println("Numero invalido!!");
 					System.out.println("");
+					break;
 				
 			}
 			
