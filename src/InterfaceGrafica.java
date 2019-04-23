@@ -1,105 +1,34 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Scanner;
+import java.awt.*;
 
-public class InterfaceGrafica {
+public class InterfaceGrafica extends JFrame{
 	
-	public static void main(String[] args) {
+	private JLabel  texto;
+	private JPanel  painel = new JPanel();
+	private JButton botao[] = new JButton[5];
+	
+	public InterfaceGrafica(String tit) {
+		super(tit);
+		this.setSize(800,600);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Elevador elevator = new Elevador();
+		botao[0] = new JButton("CHAMAR ELEVADOR");
+		botao[1] = new JButton("ENTRAR NO ELEVADOR");
+		botao[2] = new JButton("SAIR DO ELEVADOR");
+		botao[3] = new JButton("STATUS DO ELEVADOR");
+		botao[4] = new JButton("ESCOLHER ANDAR");
 		
-		Scanner leia = new Scanner(System.in);
+		for(int x = 0; x < botao.length; x++) {
+			painel.add(botao[x]);
+		}
 		
-		JFrame janela = new JFrame("Elevador");
+		this.add(painel);
 		
-		JPanel painel = new JPanel();
-		
-		JButton btao1 = new JButton("Chamar Elevador");
-		JButton btao2 = new JButton("Entrar Elevador");
-		JButton btao3 = new JButton("Sair Elevador");
-		JButton btao4 = new JButton("Status Elevador");
-		JButton btao5 = new JButton("Escolher Andar");
-		
-		
-		JLabel mensag = new JLabel();
-		
-		btao1.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println();
-				System.out.println("Aguarde enquanto o elevador chega ");
-				elevator.chamarElevador();
-				System.out.println();
-				
-			}
-		});
-		
-		btao2.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println();
-				elevator.entrarElevador();;
-				System.out.println();
-				
-			}
-		});
-		
-		btao3.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println();
-				elevator.sairElevador();
-				System.out.println();
-				
-			}
-		});
-		
-		btao4.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println();
-				elevator.status();
-				System.out.println();
-				
-			}
-		});
-		
-		btao5.addActionListener(new ActionListener(){
-
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println();
-				if(elevator.isInsideElev()) {
-					System.out.print("Digite o Andar que voce quer: ");
-					int andar = leia.nextInt();
-					elevator.escolherAndar(andar);
-				}else {
-					System.out.println("ERRO! Voce precisa está dentro do elevador!!");
-				}							
-				System.out.println("");
-				
-			}
-		});		
-		
-		painel.add(btao1);
-		painel.add(btao2);
-		painel.add(btao3);
-		painel.add(btao4);
-		painel.add(btao5);		
-		painel.add(mensag);
-		
-		janela.setSize(800,600);
-		
-		janela.add(painel);
-		
-		janela.setDefaultCloseOperation(janela.EXIT_ON_CLOSE);
-		janela.setVisible(true);
-		
+		this.setVisible(true); 
 	}
 	
+	public static void main (String args[]) {
+		new InterfaceGrafica("Elevador");
+	}
+		
 }
