@@ -9,7 +9,7 @@ public class Principal {
 	//alguemPegouElev() << alguem pega o Elevador
 	//status() << status do elevador
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		
 		Scanner leia = new Scanner(System.in);
 		
@@ -84,6 +84,6 @@ public class Principal {
 			
 		}while(opcao != 6 );
 		
-	}
+	}*/
 
 }
