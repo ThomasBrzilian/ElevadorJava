@@ -4,6 +4,7 @@ public class Elevador {
 	private int andarAtualElev; // Atributo que informa qual andar atual do elevador
 	private int andarAtualPess; // Atributo que informa qual andar o usuario está
 	private boolean insideElev; // Atributo que informa se o usuario está no elevador
+	String g;
 
 	// Construtor
 	public Elevador() {
@@ -15,39 +16,41 @@ public class Elevador {
 	//Métodos
 	
 	//Método para chamar o elevador!!
-	public void chamarElevador() {
+	public String chamarElevador() {
 		if (this.getAndarAtualElev() == this.getAndarAtualPess()) {         // 1a condicao, pergunta se o elevador está no msmo andar do usuario??
-			System.out.println("Elevador já está no andar!!!");             // se sim, informa a mensagem!
+			return ("Elevador já está no andar!!!");             // se sim, informa a mensagem!
 		} else {
 			if (this.getAndarAtualElev() > this.getAndarAtualPess()) {      // 2a condicao, pergunta se o elevador tá em um andar mais alto q o do usuario?
 				System.out.println("Você pediu o elevador!");               // se sim, ele faz um loop descendo até o andar atual do usuario 
 				System.out.println("Elevador Descendo!! \n"+this.getAndarAtualElev()); 
 				do {
 					this.setAndarAtualElev(this.getAndarAtualElev() - 1);
-					System.out.println(this.getAndarAtualElev());
+					g += Integer.toString((this.getAndarAtualElev()));
 				}while(this.getAndarAtualElev() != this.getAndarAtualPess());
+				return g;
 			}else {                                                         //3a e ultima condição possivel, qnd o elevador tá em um andar mais baixo que o do usuario
 				System.out.println("Você pediu o elevador! ");              //faz um loop subindo o elevador até o andar atual da pessoa.					
 				System.out.println("Elevador Subindo!! \n"+ this.getAndarAtualElev());
 				do {
 					this.setAndarAtualElev(this.getAndarAtualElev() - 1);
-					System.out.println(this.getAndarAtualElev());
+					String f = Integer.toString((this.getAndarAtualElev()));
+					return f;
 				}while(this.getAndarAtualElev() != this.getAndarAtualPess());
 			}
-			System.out.println("O Elevador está no seu andar!");
+			//return g;
 		}
 	}
 	
 	//Método para entrar no elevador!!
-	public void entrarElevador() {
+	public String entrarElevador() {
 		if(this.getAndarAtualElev() != this.getAndarAtualPess()) {          //1a condicao, pergunta se o elevador está no msmo andar do usuario??
-			System.out.println("Você precisa chamar o elevador primeiro");  //se não, informa a mensagem pedindo para chamar o elevador antes
+			return("Você precisa chamar o elevador primeiro");  //se não, informa a mensagem pedindo para chamar o elevador antes
 		}else {
 			if(this.isInsideElev()) {                                       //pergunta se a pessoa já está dentro do elevador?
-				System.out.println("Você já esta dentro do elevador");      //se sim informa a mensagem.
+				return("Você já esta dentro do elevador");      //se sim informa a mensagem.
 			}else {
 				this.setInsideElev(true);                                   //ultima condição, quando o usuario ta no msmo andar do elevador e nao ta dentro do elevador, ele entra no elevador!!
-				System.out.println("Você entrou do Elevador!");             //Mensagem que entrou no elevador!!!
+				return("Você entrou do Elevador!");             //Mensagem que entrou no elevador!!!
 			}
 		}
 	}
@@ -84,12 +87,12 @@ public class Elevador {
 	}
 	
 	//Método para sair do Elevador
-	public void sairElevador() {
+	public String sairElevador() {
 		if(!this.isInsideElev()) {                                                          //Pergunta se o usuario esta dentro do elevador??
-			System.out.println("Você ja está fora do elevador!");                           //Se não, informa a mensagem que o usuario ja esta fora do elevador
+			return("Você ja está fora do elevador!");                           //Se não, informa a mensagem que o usuario ja esta fora do elevador
 		}else {                                                                             //Se sim
 			this.setInsideElev(false);                                                      //O usuario sai do elevador
-			System.out.println("Você saiu do Elevador!!");                                  //Informa a mensagem
+			return("Você saiu do Elevador!!");                                  //Informa a mensagem
 		}
 	}
 	
@@ -100,11 +103,12 @@ public class Elevador {
 	}
 	
 	//Método que informa o status atual do elevador
-	public void status() {
-		System.out.println("O andar que a pessoa está é: "+this.getAndarAtualPess());
-		System.out.println("O andar que o elevator está é: "+this.getAndarAtualElev());
-		System.out.print("A pessoa está dentro do elevador? ");
-		System.out.println(this.isInsideElev()? "Sim" : "Não");
+	public String status() {
+		final String s  = ("O andar que a pessoa está é: "+this.getAndarAtualPess() + "\n")
+				  		+ ("O andar que o elevator está é: "+this.getAndarAtualElev() + "\n")
+				  		+ ("A pessoa está dentro do elevador? ") 
+				  		+ (this.isInsideElev()? "Sim" : "Não" + "\n");
+		return s;
 	}
 	
 	//Metodos Getters e Setters
