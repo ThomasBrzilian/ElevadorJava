@@ -5,9 +5,6 @@ public class InterfaceGrafica extends JFrame{
 	
 	private JLabel  labBemVindo = new JLabel();
 	private JButton btnBotao[] = new JButton[5];
-	private JPanel painel = new JPanel();
-	private JTextArea txaCaixaTexto = new JTextArea(null, 13, 17);
-	private JScrollPane spBarRol;
 	Elevador lele = new Elevador();
 	
 	public InterfaceGrafica(String titulo) {
@@ -22,37 +19,37 @@ public class InterfaceGrafica extends JFrame{
 		labBemVindo.setForeground(Color.BLUE);
 		
 		btnBotao[0] = new JButton("CHAMAR ELEVADOR");
-		btnBotao[0].setBounds(12,52,170,30);
+		btnBotao[0].setBounds(12,52,180,30);
 		
 		btnBotao[1] = new JButton("ENTRAR NO ELEVADOR");
-		btnBotao[1].setBounds(12,92,170,30);
+		btnBotao[1].setBounds(12,92,180,30);
 		
 		btnBotao[2] = new JButton("SAIR DO ELEVADOR");
-		btnBotao[2].setBounds(12,132,170,30);
+		btnBotao[2].setBounds(12,132,180,30);
 		
 		btnBotao[3] = new JButton("ESCOLHER ANDAR");
-		btnBotao[3].setBounds(12,172,170,30);
+		btnBotao[3].setBounds(12,172,180,30);
 		
 		btnBotao[4] = new JButton("STATUS DO ELEVADOR");
-		btnBotao[4].setBounds(12,212,170,30);
+		btnBotao[4].setBounds(12,212,180,30);
 		
-		painel.setBounds(165,47,290,210);
+//		painel.setBounds(165,47,290,210);
 		
-		txaCaixaTexto.setEditable(false);
-		txaCaixaTexto.setLineWrap(true);
-		txaCaixaTexto.setWrapStyleWord(true);
+//		txaCaixaTexto.setEditable(false);
+//		txaCaixaTexto.setLineWrap(true);
+//		txaCaixaTexto.setWrapStyleWord(true);
 		
-		spBarRol = new JScrollPane(txaCaixaTexto, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//		spBarRol = new JScrollPane(txaCaixaTexto, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		txaCaixaTexto.append(lele.chamarElevador());
-		txaCaixaTexto.append(lele.entrarElevador());
+//		txaCaixaTexto.append(lele.chamarElevador());
+//		txaCaixaTexto.append(lele.entrarElevador());
 		
-		painel.add(spBarRol);		
+//		painel.add(spBarRol);		
 		
 		for(int x = 0; x < btnBotao.length; x++) {
 			this.add(btnBotao[x]);
 		}
-		this.add(painel);
+//		this.add(painel);
 		this.add(labBemVindo);
 		this.setVisible(true); 
 	}
