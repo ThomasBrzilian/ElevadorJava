@@ -5,7 +5,8 @@ public class InterfaceGrafica extends JFrame{
 	
 	private JLabel  labBemVindo = new JLabel();
 	private JButton btnBotao[] = new JButton[5];
-	Elevador lele = new Elevador();
+	private JTextArea txaCaixaTexto = new JTextArea();
+	private JScrollPane spBarRol = new JScrollPane(txaCaixaTexto);
 	
 	public InterfaceGrafica(String titulo) {
 		super(titulo);
@@ -32,30 +33,26 @@ public class InterfaceGrafica extends JFrame{
 		
 		btnBotao[4] = new JButton("STATUS DO ELEVADOR");
 		btnBotao[4].setBounds(12,212,180,30);
+
+		spBarRol.setBounds(215, 53, 200, 192);
 		
-//		painel.setBounds(165,47,290,210);
-		
-//		txaCaixaTexto.setEditable(false);
-//		txaCaixaTexto.setLineWrap(true);
-//		txaCaixaTexto.setWrapStyleWord(true);
-		
-//		spBarRol = new JScrollPane(txaCaixaTexto, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
-//		txaCaixaTexto.append(lele.chamarElevador());
-//		txaCaixaTexto.append(lele.entrarElevador());
-		
-//		painel.add(spBarRol);		
-		
+		txaCaixaTexto.setEditable(false);
+		txaCaixaTexto.setLineWrap(true);
+		txaCaixaTexto.setWrapStyleWord(true);
+				
 		for(int x = 0; x < btnBotao.length; x++) {
 			this.add(btnBotao[x]);
 		}
-//		this.add(painel);
+
+		this.add(spBarRol);
 		this.add(labBemVindo);
 		this.setVisible(true); 
 	}
+		
 	
 	public static void main (String args[]) {
 		new InterfaceGrafica("Elevador");
 	}
+
 		
 }
