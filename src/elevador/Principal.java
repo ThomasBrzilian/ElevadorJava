@@ -1,3 +1,4 @@
+package elevador;
 import java.util.Scanner;
 
 public class Principal {

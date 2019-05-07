@@ -1,3 +1,5 @@
+package elevador;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ public class InterfaceGrafica extends JFrame{
 	
 	public InterfaceGrafica(String titulo) {
 		super(titulo);
-		this.setSize(450,300);
+		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 		
@@ -36,7 +38,7 @@ public class InterfaceGrafica extends JFrame{
 		btnBotao[1].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				txaCaixaTexto.append("- "+ e.entrarElevador() + "\n");
+				txaCaixaTexto.append( e.entrarElevador());
 			}
 		});
 		
@@ -54,7 +56,16 @@ public class InterfaceGrafica extends JFrame{
 		btnBotao[3].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				txaCaixaTexto.append("- "+ e.escolherAndar(1) + "\n");
+				try {
+					int andar = Integer.parseInt(JOptionPane.showInputDialog("Digite o andar!"));
+					if(andar < 0) {
+						txaCaixaTexto.append("Digite um número válido!!\n");
+					}else {
+						txaCaixaTexto.append(e.escolherAndar(andar));
+					}
+				}catch (Exception e) {
+					txaCaixaTexto.append("Digite um número válido!!\n");
+				}				
 			}
 		});
 		
@@ -63,13 +74,14 @@ public class InterfaceGrafica extends JFrame{
 		btnBotao[4].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				txaCaixaTexto.append(e.status());
+				txaCaixaTexto.append("\n" + e.status() + "\n");
 			}
 		});
 
-		spBarRol.setBounds(215, 53, 200, 192);
+		spBarRol.setBounds(215, 53, 250, 192);
 		
-		txaCaixaTexto.setEditable(true);
+		txaCaixaTexto.setText(e.status() + "\n");
+		txaCaixaTexto.setEditable(false);
 		txaCaixaTexto.setLineWrap(true);
 		txaCaixaTexto.setWrapStyleWord(true);
 				
