@@ -18,6 +18,7 @@ public class InterfaceGrafica extends JFrame{
 		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
+                this.setResizable(false);
 		
 		labBemVindo.setText("BEM VINDO AO SIMULADOR DE ELEVADOR!");
 		labBemVindo.setBounds(78, 10, 350, 30);
@@ -57,7 +58,7 @@ public class InterfaceGrafica extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					int andar = Integer.parseInt(JOptionPane.showInputDialog("Digite o andar!"));
+					int andar = Integer.parseInt(JOptionPane.showInputDialog("Digite o andar! (Digite 0 para o Térreo) "));
 					if(andar < 0) {
 						txaCaixaTexto.append("Digite um número válido!!\n");
 					}else {

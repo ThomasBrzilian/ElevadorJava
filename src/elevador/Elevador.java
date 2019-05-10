@@ -66,7 +66,7 @@ public class Elevador {
 			return resposta;
 		}else {
 			if(this.getAndarAtualElev() > andar) {                                          //1a condição , se o andar que o usuario escolheu é menor que o andar atual
-				resposta += "Você escolheu o "+andar+"° andar!! \n";                   //informa que andar ela escolheu
+				resposta += ((andar == 0) ? ("Você escolheu o Térreo!!") : ("Você escolheu o "+andar+"° andar!!")) +  "\n";                   //informa que andar ela escolheu
 				resposta += "Elevador Descendo!! \n";
 				resposta += ((this.getAndarAtualElev() == 0) ? ("T") : (this.getAndarAtualElev())) + "\n";
 				do {                                                                        //faz um loop descendo o elevador até o andar que a pessoa escolheu	
@@ -74,7 +74,7 @@ public class Elevador {
 					resposta += ((this.getAndarAtualElev() == 0) ? ("T") : (this.getAndarAtualElev())) + "\n";
 				}while(this.getAndarAtualElev() != andar);
 				resposta += "O Elevador chegou no andar ";
-				resposta += ((this.getAndarAtualElev() == 0) ? ("T") : (this.getAndarAtualElev())) + "\n";
+				resposta += ((this.getAndarAtualElev() == 0) ? ("Térreo") : (this.getAndarAtualElev())) + "\n";
 				this.setAndarAtualPess(this.getAndarAtualElev());
 				return resposta;
 			}else {
