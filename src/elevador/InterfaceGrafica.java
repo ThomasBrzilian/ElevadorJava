@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 public class InterfaceGrafica extends JFrame{
 	
 	private JLabel  labBemVindo = new JLabel();
-	private JButton btnBotao[] = new JButton[5];
+	private JButton btnBotao[] = new JButton[6];
 	private JTextArea txaCaixaTexto = new JTextArea();
 	private JScrollPane spBarRol = new JScrollPane(txaCaixaTexto);
 	private Elevador e = new Elevador();
 	
 	public InterfaceGrafica(String titulo) {
 		super(titulo);
-		this.setSize(500,300);
+		this.setSize(500,340);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
                 this.setResizable(false);
@@ -78,8 +78,19 @@ public class InterfaceGrafica extends JFrame{
 				txaCaixaTexto.append("\n" + e.status() + "\n");
 			}
 		});
+		
+		
+		btnBotao[5] = new JButton("LIMPAR TELA");
+		btnBotao[5].setBounds(12,252,180,30);
+		btnBotao[5].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				txaCaixaTexto.setText("");
+			}
+		});
+		
 
-		spBarRol.setBounds(215, 53, 250, 192);
+		spBarRol.setBounds(215, 53, 250, 230);
 		
 		txaCaixaTexto.setText(e.status() + "\n");
 		txaCaixaTexto.setEditable(false);
